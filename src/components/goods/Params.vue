@@ -383,11 +383,12 @@ export default {
     margin: 15px 0;
   }
   .el-tag{
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
   }
   .input-new-tag{
-    width: 90px;
-    margin-left: 10px;
+    width: 200px;
+    margin-left: 5px;
   }
   .button-new-tag{
     margin-left: 10px;

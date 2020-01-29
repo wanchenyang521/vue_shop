@@ -44,9 +44,9 @@
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="querInfo.pagenum"
+          :current-page="queryInfo.pagenum"
           :page-sizes="[1, 2, 4, 10]"
-          :page-size="querInfo.pagesize"
+          :page-size="queryInfo.pagesize"
           layout="total, sizes, prev, pager, next, jumper"
           :total="total">
         </el-pagination>
@@ -122,7 +122,7 @@ export default {
         new_cat_name: ''
       },
       //  查询条件
-      querInfo: {
+      queryInfo: {
         type: 3,
         pagenum: 1,
         pagesize: 5
@@ -204,7 +204,7 @@ export default {
     },
     //  获取商品分类数据
     async getCateList () {
-      const { data: res } = await this.$http.get('categories', { params: this.querInfo })
+      const { data: res } = await this.$http.get('categories', { params: this.queryInfo })
       if (res.meta.status !== 200) {
         return this.$message.error('获取商品分类失败')
       }
@@ -215,12 +215,12 @@ export default {
     },
     //  监听pagesize改变
     handleSizeChange (newsize) {
-      this.querInfo.pagesize = newsize
+      this.queryInfo.pagesize = newsize
       this.getCateList()
     },
     //  监听页码值
     handleCurrentChange (newpage) {
-      this.querInfo.pagenum = newpage
+      this.queryInfo.pagenum = newpage
       this.getCateList()
     },
     //  获取父级分类列表
