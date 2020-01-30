@@ -198,7 +198,7 @@ export default {
       // 先获取数据
       const { data: res } = await this.$http.get('categories/' + id)
       if (res.meta.status !== 200) {
-        console.log('获取用户失败')
+        // .log('获取用户失败')
       }
       this.editCateForm.cat_name = res.data.cat_name
     },
@@ -211,7 +211,7 @@ export default {
       //  数据获取列表
       this.catelist = res.data.result
       this.total = res.data.total
-      console.log(this.catelist)
+      // console.log(this.catelist)
     },
     //  监听pagesize改变
     handleSizeChange (newsize) {
@@ -233,7 +233,7 @@ export default {
     },
     //  选择项
     parentCateChange () {
-      console.log(this.selectedKeys)
+      // console.log(this.selectedKeys)
       if (this.selectedKeys.length > 0) {
         //  父级分类的id
         this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
@@ -275,7 +275,7 @@ export default {
         const { data: res } = await this.$http.put('categories/' + this.editCateForm.cat_id, {
           cat_name: this.editCateForm.new_cat_name })
         if (res.meta.status !== 200) {
-          console.log(res)
+          // console.log(res)
           return this.$message.error('编辑失败')
         }
         this.getCateList()
